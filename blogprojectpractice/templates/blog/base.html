@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% load static %}
+{% load blog_tags%} 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static "css/blog.css" %}">
+    <title>{%block title_block%} {%endblock%}</title>
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-inverse">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">ADITYA BLOG</a>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/signup">Signup</a></li>
+                <li><a href="/accounts/login">Login</a></li>
+                <li><a href="/accounts/logout">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    {% block body_block %}
+    {% endblock %}
+    
+    <div class="content">
+        {%block content%}
+        {%endblock%}
+    </div>
+    <div class="sidebar">
+        <h2>ADITYA's BLOG</h2>
+        <p>The Total Number of published post upto today: <span id="pcount"> {%my_tag%}</span></p>
+        <h3>Latest Posts:</h3> {%show_latest_post%}
+    </div>
+    
+</body>
+</html>

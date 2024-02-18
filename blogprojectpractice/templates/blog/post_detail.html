@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{%extends 'blog/base.html'%}
+{% block title_block%} ADITYA's BLOG HOME PAGE {%endblock%}
+
+{%block content%}
+    <h1>{{post.title}}</h1>
+    <p id="date">Published on {{post.publish}} by {{post.author}}
+    </p>
+    {{post.body|linebreaks}} <br>
+    <!-- Add email functionality -->
+    <div class="container" align="center">
+        <a href="/{{post.id}}/share" class="btn btn-lg btn-success" >Share Post By Email</a>
+    </div>
+
+
+    {% with comments.count as comments_count%}
+    <h2>{{comments_count}} Comment {{comments_count | pluralize}}</h2>
+    {% endwith%}
+
+    <!-- To Display comment info -->
+    {% if comments %}
+        {% for comment in comments%}
+           <p id="ch"> -> Comment {{forloop.counter}} by {{comment.name}} on {{comment.created}}</p>
+           <div class="cb">
+            {{comment.body | linebreaks}}
+           </div>
+        {%endfor%}
+        <hr>
+    {%else%}
+    <p>There are no Comments Yet !!!</p>
+    {%endif%}
+
+
+    {%if csubmit %}
+           <h1>Your Comment Added Successfully</h1>
+    {%else%}
+           <h2>You can submit your comment it is valuable for us !!!</h2>
+           <form method="post">
+            {{form.as_p}}
+            {%csrf_token%}
+            <input type="submit" class="btn btn-success btn-lg" value="Submit Comment">
+           </form>
+    {%endif%}
+
+    {%endblock%}

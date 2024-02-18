@@ -1,0 +1,59 @@
+.content{
+    width: 60%;
+    float: left;  
+    padding:0 0 0 30px;
+    background: rgb(224, 133, 133);
+    height: 100%;
+}
+  
+.sidebar{
+    width: 40%;
+    float: right;
+    padding: 10px;
+    background: rgb(73, 136, 73);
+    height: 100%;
+}
+
+h1{
+    text-align: center;
+    border-bottom: 1px solid #bbb;
+    padding-bottom: 10px;
+
+}
+/* 
+body{
+    color: wheat;
+    background: rgb(187, 63, 63);;
+    
+} */
+
+#date{
+    color: rgb(247, 247, 9);
+    font-size: 12px;
+    font-style: italic;
+} 
+a{
+    color: chocolate;
+}
+
+#ch{
+    color: rgb(247, 247, 9);
+    font-size: 10px;
+    font-style: italic;
+    border-bottom: 2px solid yellow;
+} 
+/* input[type='text']{
+    background: blue;
+    color: white;
+} */
+
+.tagbox{
+    border: orange;
+}
+
+
+#pcount{
+    font-size: 40px;
+    color: yellow;
+    font-weight: bold;
+}

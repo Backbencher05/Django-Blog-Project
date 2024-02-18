@@ -1,0 +1,47 @@
+1. list all the Post
+2. slugurl
+2.1. Detail page
+3. pagination
+4. email concept
+5. Add comment Section to the blog
+    to add comments various activity:
+    1. create model,to save the comment 
+    2. form required to submit comments by enduser, 
+    3. model based form: comment must save to db
+    4. view function is required to process comment and save to the db
+    5. In Post Detail page(postdetal.html) : display all comments and form submit comment
+        Display
+       1. Number of comment
+       2. Head Part
+       3. comment body
+       4. Add form to submit new comment
+       5. if already submited display success message
+
+6. Tagging concept
+    - helpful for end user
+    - helpful for the SEO 
+    - 'taggit':we have to use 3rd party application to   implement Tagging
+    - pip install django-taggit
+    - add in settings.py in installed app
+    - in models.py (for every post i want tag)
+    - after changement , do makemigrations and migrate
+
+7. Design side bar
+    if we want Create our own Template Tag i.e custom template tag
+    3 utility functions are available:
+
+    1. simple_tag: to perform some processing and return a string
+    2. inclusion_tag: to perform some processing and return a rendered template
+    3. assignment_tag: to perform some processing and assign athe result to the varible in the context, so, that variable we can use anywhere
+
+    How to create custom template tag
+
+    - Inside Appliction folder, create one folder named with :templatetags(fixed name)
+    - in that folder crete one file __init__.py(now treated as python package)
+    - create one more file: blog_tags.py
+
+
+    Now let use: 
+    -> use simple_tag:  to return number of post published 
+    -> use inclusion_tag: To display Latest Post
+    ->  assignment_tag:  To display the most commented post
